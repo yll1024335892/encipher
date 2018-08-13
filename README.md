@@ -28,3 +28,33 @@ Good luck!
 2.加密后代码无需扩展和第三方组件的加密方式，理论上都是可以破解的。
 
 如有问题，请联系作者（Jacky Yu <jacky325@qq.com>）。
+## 使用方法
+```
+<?php
+$app = str_replace('\\', '/', dirname(__FILE__));
+require_once($app . '/lib/encipher.min.php');
+ 
+$original = $app . '/original'; //待加密的文件目录
+$encoded  = $app . '/encoded';  //加密后的文件目录
+$encipher = new Encipher($original, $encoded);
+ 
+/**
+ * 设置加密模式 false = 低级模式; true = 高级模式
+ * 低级模式不使用eval函数
+ * 高级模式使用了eval函数
+ */
+$encipher->advancedEncryption = true;
+ 
+//设置注释内容
+$encipher->comments = array(
+    'Encipher - the PHP code encode tool',
+    'Version: 1.1.1',
+    '',
+    'The latest version of Encipher can be obtained from:',
+    'https://github.com/uniqid/encipher'
+);
+ 
+echo "<pre>\n";
+$encipher->encode();
+echo "</pre>\n";
+```
