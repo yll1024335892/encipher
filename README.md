@@ -1,4 +1,4 @@
-#php的免加密文档#
+##php的免加密文档##
 ## Encipher - the PHP code encode tool ##
 
 php code encode &amp; decode
